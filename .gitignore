@@ -1,0 +1,10 @@
+# Ambiente virtual
+venv/
+
+# Template
+arquivos-projeto-blog/
+
+# Cache
+__pycache__
+__pycache__/
+*.pyc
