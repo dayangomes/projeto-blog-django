@@ -27,13 +27,19 @@ DEBUG = True
 
 ALLOWED_HOSTS = []
 
+# Configs django summernotes
+
+
 
 # Application definition
 
 INSTALLED_APPS = [
-    'posts.apps.PostsConfig',
-    'categorias.apps.CategoriasConfig',
-    'comentarios.apps.ComentariosConfig',
+    'posts',
+    'categorias',
+    'comentarios',
+    # 'posts.apps.PostsConfig',
+    # 'categorias.apps.CategoriasConfig',
+    # 'comentarios.apps.ComentariosConfig',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -78,8 +84,12 @@ WSGI_APPLICATION = 'blog.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+        'ENGINE': 'django.db.backends.mysql',
+        'NAME': 'blog_django',
+        'HOST': '127.0.0.1',
+        'PORT': '3306',
+        'USER': 'dayan',
+        'PASSWORD': '$Dayan15',
     }
 }
 
@@ -106,9 +116,9 @@ AUTH_PASSWORD_VALIDATORS = [
 # Internationalization
 # https://docs.djangoproject.com/en/2.2/topics/i18n/
 
-LANGUAGE_CODE = 'en-us'
+LANGUAGE_CODE = 'pt-BR'
 
-TIME_ZONE = 'UTC'
+TIME_ZONE = 'America/Sao_Paulo'
 
 USE_I18N = True
 
