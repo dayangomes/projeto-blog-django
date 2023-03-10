@@ -27,10 +27,6 @@ DEBUG = True
 
 ALLOWED_HOSTS = []
 
-# Configs django summernotes
-
-
-
 # Application definition
 
 INSTALLED_APPS = [
@@ -146,3 +142,7 @@ MESSAGE_TAGS = { # Configuração para as mensagens
     constants.SUCCESS: 'alert-success',
     constants.INFO: 'alert-info',
 }
+
+# Configs django summernotes
+INSTALLED_APPS += ('django_summernote', )
+X_FRAME_OPTIONS = 'SAMEORIGIN'
