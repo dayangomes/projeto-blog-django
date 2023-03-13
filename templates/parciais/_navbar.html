@@ -9,20 +9,20 @@
         <div class="collapse navbar-collapse" id="navbarResponsive">
             <ul class="navbar-nav ml-auto">
                 <li class="nav-item">
-                    <a class="nav-link" href="index.html">Python</a>
+                    <a class="nav-link" href="{% url 'post_categoria' 'python' %}">Python</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="index.html">Django</a>
+                    <a class="nav-link" href="{% url 'post_categoria' 'django' %}">Django</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="index.html">Tecnologia</a>
+                    <a class="nav-link" href="{% url 'post_categoria' 'tecnologia' %}">Tecnologia</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="index.html">Sistemas</a>
+                    <a class="nav-link" href="{% url 'post_categoria' 'sistemas' %}">Sistemas</a>
                 </li>
             </ul>
-            <form class="form-inline my-2 my-lg-0 ml-lg-4" action="/busca/">
-                <input name="termo" value="" class="form-control mr-sm-2" type="search" placeholder="Pesquisar"
+            <form class="form-inline my-2 my-lg-0 ml-lg-4" action="{% url 'post_busca' %}">
+                <input name="termo" value="{{ request.GET.termo }}" class="form-control mr-sm-2" type="search" placeholder="Pesquisar"
                        aria-label="Search">
             </form>
         </div>
