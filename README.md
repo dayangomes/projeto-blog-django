@@ -6,7 +6,7 @@ Durante a construção desse projeto em django, utilizei várias:
 - Alertas com o Django Messages;
 - Páginas semifechadas verificando usuários logados;
 - Modelagem de banco de dados usando o ORM do Django;
-- Configuração de rotas e views para gerenciamento de URLs e apresentação de templates
+- Configuração de rotas e views para gerenciamento de URLs e apresentação de templates, incluindo a utilização das CBVs para criar views de forma mais simples e organizada.
 - Utilização do sistema de autenticação do Django para controle de acesso de usuários
 - Implementação de CRUDs (Create, Read, Update, Delete) para manipulação de dados, incluindo a utilização das classes ListView e UpdateView para listagem e atualização de objetos de um modelo;
 - Utilização do sistema de formulários do Django para entrada e validação de dados;
