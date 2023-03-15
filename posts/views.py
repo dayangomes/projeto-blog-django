@@ -1,9 +1,11 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 from django.views.generic.list import ListView
 from django.views.generic.edit import UpdateView
 from posts.models import Post
 from django.db.models import Count, Q, Case, When # Importa os filtros para o queryset.
 from comentarios.forms import FormComentario
+from comentarios.models import Comentario
+from django.contrib import messages
 
 class PostIndex(ListView):
     model = Post # Muda o model padrão para o model Post.
@@ -70,6 +72,20 @@ class PostDetalhes(UpdateView):
     template_name = 'posts/post_detalhes.html'
     form_class = FormComentario
     context_object_name = 'post'
+    
+    def form_valid(self, form):
+        post = self.get_object()
+        comentario = Comentario(**form.cleaned_data)
+        comentario.post_comentario = post
+
+        if self.request.user.is_authenticated:
+            comentario.usuario_comentario = self.request.user
+
+        comentario.save()
+        messages.success(self.request, 'Comentário enviado com sucesso!')
+        return redirect('post_detalhes', pk=post.id)
+    
+
 
     def get_queryset(self):
         qs = super().get_queryset()

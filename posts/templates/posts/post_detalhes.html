@@ -12,7 +12,9 @@
                 <h5>{{ post.execerto_post }}</h5>
                 <p class="text-muted mt-4">
                     <small>
-                        {{ post.autor_post }} | {{ post.data_post }} | {{ post.categoria_post }}
+                        Autor: {{ post.autor_post|capfirst }} 
+                        | {{ post.data_post }} 
+                        | {{ post.categoria_post }}
                     </small>
                 </p>
             </div>
@@ -61,10 +63,18 @@
             <div class="col-xl"></div>
             <div class="col-xl-8">
                 <h2 class="my-3">Deixe um comentário</h2>
-
+                {% include 'parciais/_messages.html' %}
                 <form method="POST" action="#envia_comentario">
+                    {% csrf_token %}
                     <table class="table">
+                        
                         {{ form.as_table }}
+                        
+                        {% comment %} <tr>
+                            <th><label for="id_comment">Comment:</label></th>
+                            <td><textarea name="comment" id="id_comment"></textarea></td>
+                        </tr> {% endcomment %}
+
                         <tr>
                             <td colspan="2">
                                 <input id="envia_comentario" type="submit" class="btn btn-primary"
