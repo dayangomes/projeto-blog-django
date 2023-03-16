@@ -1,6 +1,7 @@
 from django import forms
 from django.forms import ModelForm
 from .models import Comentario
+from django.forms.widgets import ClearableFileInput
 
 class FormComentario(ModelForm):
 
@@ -24,18 +25,18 @@ class FormComentario(ModelForm):
         print(data)
 
     class Meta:
-        pass
         model = Comentario
         fields = ['nome_comentario', 'email_comentario', 'comentario']
+        label_suffix = ''
 
-        widgets = { # Adiciona estilos aos campos do formulário.
+        widgets = {
             'nome_comentario': forms.TextInput(attrs={
-                'style': 'max-width: 200px; max-height: 30px; background-color: #f9f9f9; border: 3px solid #ddd; border-radius: 5px;'
-             }),
+                'style': 'max-width: 200px; max-height: 30px; background-color: #f9f9f9; border: 3px solid #ddd; border-radius: 8px; border-color: #6d4a76;'
+            }),
             'email_comentario': forms.TextInput(attrs={
-                'style': 'max-width: 200px; max-height: 30px; background-color: #f9f9f9; border: 3px solid #ddd; border-radius: 5px;'
-             }),
+                'style': 'max-width: 200px; max-height: 30px; background-color: #f9f9f9; border: 3px solid #ddd; border-radius: 8px; border-color: #6d4a76;'
+            }),
             'comentario': forms.Textarea(attrs={
-                'style': 'max-width: 200px; max-height: auto; background-color: #f9f9f9; border: 3px solid #ddd; border-radius: 5px;'
-             }),
+                'style': 'max-width: 200px; max-height: auto; background-color: #f9f9f9; border: 3px solid #ddd; border-radius: 10px; border-color: #6d4a76;'
+            }),
         }

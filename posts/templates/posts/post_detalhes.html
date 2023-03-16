@@ -39,26 +39,25 @@
         <div class="row pt-5">
             <div class="col-xl"></div>
             <div class="col-xl-8">
-                <h2 class="my-3">Comentários ({{ post.numero_comentarios }})</h2>
+                <h2 class="my-3">Comentários ({{ comentarios.count }})</h2>
 
+                {% for comentario in comentarios %}
+                    <h5 class="mb-2 mt-5">{{ comentario.nome_comentario|capfirst }}, disse:</h5>
+                    <small class="text-muted">{{ comentario.data_comentario|naturalday|capfirst }}</small>
+                    <p class="mb-1">{{ comentario.comentario }}</p>
+                {% endfor %}
+                {% if not comentarios %}
+                    <h5 class="mt-5 text-muted">Nenhum comentário adicionado ainda.</h5>
+                {% endif %}
 
-
-                <h5 class="mb-2 mt-5">Luiz Otávio disse:</h5>
-                <small class="text-muted">hoje</small>
-                <p class="mb-1">Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo
-                    ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient
-                    montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu,
-                    pretium quis, sem. Nulla consequat massa quis enim. Donec pede justo, fringilla vel,
-                    aliquet nec, vulputate&lt;</p>
-
-
-
+                
 
             </div>
             <div class="col-xl"></div>
         </div>
 
-
+        {% include 'parciais/_pagination.html' %}
+        
         <div class="row pt-5">
             <div class="col-xl"></div>
             <div class="col-xl-8">
@@ -67,15 +66,8 @@
                 <form method="POST" action="#envia_comentario">
                     {% csrf_token %}
                     <table class="table">
-                        
+                        </tr>
                         {{ form.as_table }}
-                        
-                        {% comment %} <tr>
-                            <th><label for="id_comment">Comment:</label></th>
-                            <td><textarea name="comment" id="id_comment"></textarea></td>
-                        </tr> {% endcomment %}
-
-                        <tr>
                             <td colspan="2">
                                 <input id="envia_comentario" type="submit" class="btn btn-primary"
                                     value="Enviar">
@@ -83,8 +75,6 @@
                         </tr>
                     </table>
                 </form>
-
-
             </div>
             <div class="col-xl"></div>
         </div>
