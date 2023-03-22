@@ -27,16 +27,21 @@ class FormComentario(ModelForm):
     class Meta:
         model = Comentario
         fields = ['nome_comentario', 'email_comentario', 'comentario']
-        label_suffix = ''
 
         widgets = {
             'nome_comentario': forms.TextInput(attrs={
-                'style': 'max-width: 200px; max-height: 30px; background-color: #f9f9f9; border: 3px solid #ddd; border-radius: 8px; border-color: #6d4a76;'
+                'style': 'background-color: #f9f9f9; border: 3px solid #ddd; border-radius: 8px; border-color: #6d4a76;',
+                'placeholder': 'Digite seu nome',
+                'class': 'form-control',
             }),
             'email_comentario': forms.TextInput(attrs={
-                'style': 'max-width: 200px; max-height: 30px; background-color: #f9f9f9; border: 3px solid #ddd; border-radius: 8px; border-color: #6d4a76;'
+                'style': 'background-color: #f9f9f9; border: 3px solid #ddd; border-radius: 8px; border-color: #6d4a76;',
+                'placeholder': 'Digite seu e-mail',
+                'class': 'form-control',
             }),
             'comentario': forms.Textarea(attrs={
-                'style': 'max-width: 200px; max-height: auto; background-color: #f9f9f9; border: 3px solid #ddd; border-radius: 10px; border-color: #6d4a76;'
+                'style': 'background-color: #f9f9f9; border: 3px solid #ddd; border-radius: 10px; border-color: #6d4a76;',
+                'placeholder': 'Digite seu cometário',
+                'class': 'form-control',
             }),
         }
