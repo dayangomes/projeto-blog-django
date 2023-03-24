@@ -22,7 +22,7 @@ class FormComentario(ModelForm):
                 'Nome precisa ter mais que 2 caracteres',
         )
 
-        print(data)
+        print(data) 
 
     class Meta:
         model = Comentario
