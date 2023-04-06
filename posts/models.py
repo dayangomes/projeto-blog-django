@@ -2,6 +2,8 @@ from django.db import models
 from categorias.models import Categoria
 from django.contrib.auth.models import User
 from django.utils import timezone
+from PIL import Image
+from django.conf import settings
 
 class Post(models.Model):
     titulo_post = models.CharField(max_length=255, verbose_name='Titulo')
@@ -15,3 +17,12 @@ class Post(models.Model):
 
     def __str__(self):
         return self.titulo_post
+
+    def save(self, *args, **kwargs):
+        super().save(*args, **kwargs)
+
+        self.resize_image()
+
+    @staticmethod
+    def resize_image(img_name, new_width):
+        pass
